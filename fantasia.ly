@@ -73,6 +73,26 @@ rhOssia = \with {
         { <as f>8. <es' as, f>16 q8. <d as f>16 <des as f>8. <f, des>16 <f c>8. <f bes,>16 | }
         { <as f>8. <des as f>16 q8. \ottava #1 <as' f>16 q8. <des as f>16 q8. \ottava #0 des,,16 | }
       }
+      <<
+        {
+          \repeat unfold 2 {
+            <cis a>2 r8 \ottava #0 \grace { <cis a>16 dis } <cis a>8[ <bis a> <cis a>] |
+            <f as,>2 s4 <des as> |
+          }
+          <as' f>2 s4 <des, as> |
+          <des' f,>2 s4 <des, as> |
+          <f' as,>2 s4 <f, des as> |
+        }
+        \new Voice {
+          \voiceOne
+          r8 \tuplet 3/2 { e,16^\markup { \italic "volante." } a cis } \tuplet 3/2 { e a cis } \ottava #1 e32 a cis e a8 \ottava #0 s4. |
+          r8 f,,,32_\markup { \italic "volante." } as des es f as des es \ottava #1 f as des es f8 \ottava #0 r s4 |
+          r8 \tuplet 3/2 { e,,,16 a cis } \tuplet 3/2 { e a cis } \ottava #1 e32 a cis e a8 \ottava #0 s4. |
+          \repeat unfold 4 {
+            r8 f,,,32 as des es f as des es \ottava #1 f as des es f8 \ottava #0 r s4 |
+          }
+        }
+      >>
     }
   }
   \new Dynamics {
@@ -100,6 +120,10 @@ rhOssia = \with {
     s1\f |
     s2 s2\dim |
     s1 |
+    s4\p s2.^"dolce" |
+    s1*2 |
+    s1 | % TODO due Ped. ?
+    s1*3 |
   }
   \new Staff = "LH" {
     \key des \major
@@ -132,6 +156,12 @@ rhOssia = \with {
             \clef "bass" as,, \clef "violin" \repeat unfold 7 <as'' c ges'> |
             \clef "bass" des,, \repeat unfold 7 <as'' des f> |
           }
+          a,, \repeat unfold 5 <a'' cis> \repeat unfold 2 <a e'> |
+          des,, <as'' des> \repeat unfold 6 <as des f> |
+          a,, \repeat unfold 5 <a'' cis> \repeat unfold 2 <a e'> |
+          \repeat unfold 4 {
+            des,, <as'' des> \repeat unfold 6 <as des f> |
+          }
         } \new Voice {
           \stemDown
           des,,2 s |
@@ -152,6 +182,10 @@ rhOssia = \with {
             as s |
             des s |
           }
+          a s |
+          des s |
+          a s |
+          \repeat unfold 4 { des s | }
         }
       >>
     }
