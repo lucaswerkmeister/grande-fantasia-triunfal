@@ -6,13 +6,9 @@
   opus = 69
 }
 
-asAuthor = \markup { "Comme l'auteur le joue." }
-
-#(define-public (my-system-start-text::print grob)
-   (grob-interpret-markup grob (ly:grob-property grob 'long-text #f)))
+asAuthor = \markup { \normal-text "Comme l'auteur le joue." }
 
 rhOssia = \with {
-  \override InstrumentName.stencil = #my-system-start-text::print 
   \remove "Time_signature_engraver"
   alignAboveContext = "RH"
   fontSize = #-3
@@ -54,8 +50,8 @@ rhOssia = \with {
           { <c as d,>4 <bes as d,> r q | }
           \new Staff = "RH-ossia" \with {
             \rhOssia
-            instrumentName = \asAuthor
           } {
+            \tempo \asAuthor
             \key des \major
             <c as d,>8 \ottava #1 d'32 c ces bes a as f d \ottava #0 \tuplet 7/4 { c ces b a as f d } bes''4 <bes, as d,> |
           }
